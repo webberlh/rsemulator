@@ -116,7 +116,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rust-wasm-sample"
+name = "rsemulator"
 version = "0.1.0"
 dependencies = [
  "structopt",

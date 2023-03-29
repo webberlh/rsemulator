@@ -1,4 +1,6 @@
 extern crate structopt;
+
+use rsemulator::EmulatorCore;
 use structopt::StructOpt;
 use std::path::PathBuf;
 use std::fs;
@@ -11,22 +13,9 @@ pub struct Options {
     filename: PathBuf,
 }
 
-pub struct EmulatorCore<'a> {
-    rom: &'a str,
-}
-
-impl EmulatorCore<'_> {
-    fn new(rom: &str) -> EmulatorCore {
-        EmulatorCore { rom: rom }
-    }
-    fn run(self) -> () {
-        todo!()
-    }
-}
-
 fn main() {
     let options = Options::from_args();
-    let contents = fs::read_to_string(options.filename)
+    let contents = fs::read(options.filename)
         .expect("Something went wrong reading the file");
     let emulator = EmulatorCore::new(&contents);
     emulator.run();
