@@ -17,6 +17,5 @@ fn main() {
     let options = Options::from_args();
     let contents = fs::read(options.filename)
         .expect("Something went wrong reading the file");
-    let emulator = EmulatorCore::new(&contents);
-    emulator.run();
+    EmulatorCore::run(&contents);
 }
